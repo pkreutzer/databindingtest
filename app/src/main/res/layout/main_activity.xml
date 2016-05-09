@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="user" type="pkreutzer.databindingtest.model.User"/>
+        <variable name="handlers" type="pkreutzer.databindingtest.view.MainHandler"/>
+   </data>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.firstName}"/>
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.lastName}"/>
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.awesome ? @string/awesome : @string/not_awesome}"/>
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Toggle Awesomeness"
+           android:layout_gravity="center_horizontal"
+           android:id="@+id/button"
+           android:onClick="@{handlers.onClickToggleAwesomeness}"/>
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="set name"
+           android:layout_gravity="center_horizontal"
+           android:id="@+id/button"
+           android:onClick="@{handlers.onClickSetName}"/>
+   </LinearLayout>
+
+</layout>
